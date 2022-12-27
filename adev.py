@@ -22,8 +22,37 @@
 #  
 #  
 
+def is_cardano(a,b,c):
+	return (8*a*a*a + 15*a*a +6*a - 27*b*b*c == 1)
 
 def main(args):
+	count = 0
+	k = 0
+	while True:
+		
+		# positive k
+		a = 3*k + 2
+		b = k + 1
+		c = 8*k + 5
+		if is_cardano(a,b,c):
+			if a+b+c <= 1000:
+				count += 1
+				print(a,b,c, is_cardano(a,b,c))
+			else:
+				break
+				
+		# negative k
+		a = -3*k + 2
+		b = -k + 1
+		c = -8*k + 5
+		if is_cardano(a,b,c):
+			if a+b+c <= 1000:
+				count += 1
+				print(a,b,c, is_cardano(a,b,c))
+			else:
+				break
+		k += 1
+	print(count)	
 	return 0
 	
 if __name__ == '__main__':
